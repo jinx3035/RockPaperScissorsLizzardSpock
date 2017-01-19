@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace RockPaperScissorsLizzardSpock
 {
-    class SinglePlayer
+    class Player
     {
 
         public void PlayGame()
@@ -20,7 +20,7 @@ namespace RockPaperScissorsLizzardSpock
         }
         private string PlayerChoice()
         {
-            Console.WriteLine("Choose Rock, Paper, Scissors, Lizzard or Spock:");
+            Console.WriteLine("Choose from Rock, Paper, Scissors, Lizzard or Spock:");
             string choice = Console.ReadLine();
             if (choice == "Rock")
             {
@@ -73,33 +73,32 @@ namespace RockPaperScissorsLizzardSpock
         {
             if((PlayerInput == "P") && (AiInput == "R") || (AiInput == "Sp"))
             {
-                Console.WriteLine("You have bested artificial intelligence.");
+                Console.WriteLine("Congratulations! You have bested artificial intelligence.");
             }
             if ((PlayerInput == "R") && (AiInput == "S") || (AiInput == "L"))
             {
-                Console.WriteLine("You have bested artificial intelligence.");
+                Console.WriteLine("Congratulations! You have bested artificial intelligence.");
             }
             if ((PlayerInput == "S") && (AiInput == "P") || (AiInput == "L"))
             {
-                Console.WriteLine("You have bested artificial intelligence.");
+                Console.WriteLine("Congratulations! You have bested artificial intelligence.");
             }
             if ((PlayerInput == "L") && (AiInput == "P") || (AiInput == "Sp"))
             {
-                Console.WriteLine("You have bested artificial intelligence.");
+                Console.WriteLine("Congratulations! You have bested artificial intelligence.");
             }
-            if ((PlayerInput == "Sp") && (AiInput == "L") || (AiInput == "R"))
+            if ((PlayerInput == "Sp") && (AiInput == "S") || (AiInput == "R"))
             {
-                Console.WriteLine("You have bested artificial intelligence.");
+                Console.WriteLine("Congratulations! You have bested artificial intelligence.");
             }
             else if(PlayerInput == AiInput)
             {
-                Console.WriteLine("It's a tie.");
+                Console.WriteLine("How boring. It's a tie.");
             }
             else
             {
-                Console.WriteLine("The computer defeated you.");
+                Console.WriteLine("Resistance is futile. You have been defeated.");
             }
         }
-           
     }
 }
