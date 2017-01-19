@@ -10,9 +10,8 @@ namespace RockPaperScissorsLizzardSpock
     {
         static void Main(string[] args)
         {
-            RockPaperScissorsLizzardSpock game = new RockPaperScissorsLizzardSpock();
+            SinglePlayer game = new SinglePlayer();
             game.PlayGame();
-
 
         }
     }

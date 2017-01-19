@@ -6,113 +6,90 @@ using System.Threading.Tasks;
 
 namespace RockPaperScissorsLizzardSpock
 {
-    class RockPaperScissorsLizzardSpock
+    class SinglePlayer
     {
 
         public void PlayGame()
         {
-            string UserInput = PlayerInput();
+            string UserInput = PlayerChoice();
             string ComInput = GetAiChoice();
-            Console.WriteLine("Your choice:{0}", LetterToWord(UserInput));
-            Console.WriteLine("The computer choice:{0}", LetterToWord(ComInput));
+            Console.WriteLine("Your choice:{0}", UserInput);
+            Console.WriteLine("The computer choice:{0}", ComInput);
             Winner(UserInput, ComInput);
             Console.ReadLine();
         }
-        private string PlayerInput()
+        private string PlayerChoice()
         {
-            Console.WriteLine("Choose R(ock), P(aper), S(cissors), L(izzard) or Sp(ock):");
+            Console.WriteLine("Choose Rock, Paper, Scissors, Lizzard or Spock:");
             string choice = Console.ReadLine();
-            if (choice == "R")
+            if (choice == "Rock")
             {
-                return "R";
+                return "Rock";
             }
-            else if (choice == "P")
+            else if (choice == "Paper")
             {
-                return "P";
+                return "Paper";
             }
-            else if (choice == "S")
+            else if (choice == "Scissors")
             {
-                return "S";
+                return "Scissors";
             }
-            else if (choice == "L")
+            else if (choice == "Lizard")
             {
-                return "L";
+                return "Lizard";
             }
             else 
             {
-                return "Sp";
+                return "Spock";
             }
         }
         private string GetAiChoice()
         {
             Random random = new Random();
-
             int number = random.Next(1, 6);
             if(number == 1)
             {
-                return "P";
+                return "Paper";
             }
             else if(number == 2)
             {
-                return "R";
+                return "Rock";
             }
             else if(number == 3)
             {
-                return "S";
+                return "Scissors";
             }
             else if(number == 4)
             {
-                return "L";
+                return "Lizard";
             }
             else
             {
-                return "Sp";
+                return "Spock";
             }
         }
-        private string LetterToWord(string input)
-        {
-            if (input == "P")
-            {
-                return "paper";
-            }
-            else if (input == "R")
-            {
-                return "rock";
-            }
-            else if (input == "S")
-            {
-                return "scissors";
-            }
-            else if (input == "L")
-            {
-                return "lizard";
-            }
-            else
-            {
-                return "spock";
-            }
-        }
+
         private void Winner(string PlayerInput, string AiInput)
         {
             if((PlayerInput == "P") && (AiInput == "R") || (AiInput == "Sp"))
             {
-                Console.WriteLine("You have beat the computer.");
+                Console.WriteLine("You have bested artificial intelligence.");
             }
             if ((PlayerInput == "R") && (AiInput == "S") || (AiInput == "L"))
             {
-                Console.WriteLine("You have beat the computer.");
+                Console.WriteLine("You have bested artificial intelligence.");
             }
             if ((PlayerInput == "S") && (AiInput == "P") || (AiInput == "L"))
             {
-                Console.WriteLine("You have beat the computer.");
+                Console.WriteLine("You have bested artificial intelligence.");
             }
             if ((PlayerInput == "L") && (AiInput == "P") || (AiInput == "Sp"))
             {
-                Console.WriteLine("You have beat the computer.");
+                Console.WriteLine("You have bested artificial intelligence.");
             }
             if ((PlayerInput == "Sp") && (AiInput == "L") || (AiInput == "R"))
             {
-                Console.WriteLine("You have beat the computer.");
+                Console.WriteLine("You have bested artificial intelligence.");
             }
             else if(PlayerInput == AiInput)
             {
@@ -122,6 +99,7 @@ namespace RockPaperScissorsLizzardSpock
             {
                 Console.WriteLine("The computer defeated you.");
             }
-        }               
+        }
+           
     }
 }
