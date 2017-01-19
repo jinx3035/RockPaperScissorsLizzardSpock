@@ -8,6 +8,7 @@ namespace RockPaperScissorsLizzardSpock
 {
     class RockPaperScissorsLizzardSpock
     {
+
         public void PlayGame()
         {
             string UserInput = PlayerInput();
@@ -37,14 +38,16 @@ namespace RockPaperScissorsLizzardSpock
             {
                 return "L";
             }
-            else if (choice == "Sp")
+            else 
             {
                 return "Sp";
             }
         }
         private string GetAiChoice()
         {
-            int number = Random.Next(1, 6);
+            Random random = new Random();
+
+            int number = random.Next(1, 6);
             if(number == 1)
             {
                 return "P";
@@ -68,15 +71,15 @@ namespace RockPaperScissorsLizzardSpock
         }
         private string LetterToWord(string input)
         {
-            if(input == "P")
+            if (input == "P")
             {
                 return "paper";
             }
-            else if(input == "R")
+            else if (input == "R")
             {
                 return "rock";
             }
-            else if(input == "S")
+            else if (input == "S")
             {
                 return "scissors";
             }
@@ -88,9 +91,10 @@ namespace RockPaperScissorsLizzardSpock
             {
                 return "spock";
             }
+        }
         private void Winner(string PlayerInput, string AiInput)
         {
-            if((PlayerInput == "P") && (AiInput == "R") || (AiInput == "R"))
+            if((PlayerInput == "P") && (AiInput == "R") || (AiInput == "Sp"))
             {
                 Console.WriteLine("You have beat the computer.");
             }
@@ -118,7 +122,6 @@ namespace RockPaperScissorsLizzardSpock
             {
                 Console.WriteLine("The computer defeated you.");
             }
-        }
-        }       
+        }               
     }
 }

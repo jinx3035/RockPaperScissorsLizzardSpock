@@ -10,6 +10,10 @@ namespace RockPaperScissorsLizzardSpock
     {
         static void Main(string[] args)
         {
+            RockPaperScissorsLizzardSpock game = new RockPaperScissorsLizzardSpock();
+            game.PlayGame();
+
+
         }
     }
 }
