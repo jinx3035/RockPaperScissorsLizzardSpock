@@ -8,6 +8,11 @@ namespace RockPaperScissorsLizzardSpock
 {
     class Game
     {
+        static void Main(string[] args)
+        {
+            Game start = new Game();
+            start.PlayGame();
+        }
         public void PlayGame()
         {
             string PlayerOne;
@@ -17,10 +22,10 @@ namespace RockPaperScissorsLizzardSpock
             string GameType = Console.ReadLine();
             if(GameType == "one")
             {
-                Player Aiplayer = new Player();
-                PlayerTwo = Aiplayer.AiChoice();
                 Player Humanplayer = new Player();
                 PlayerOne = Humanplayer.PlayerChoice();
+                Player Aiplayer = new Player();
+                PlayerTwo = Aiplayer.AiChoice();
             }
             else
             {
@@ -41,19 +46,19 @@ namespace RockPaperScissorsLizzardSpock
             {
                 Console.WriteLine("Congratulations! You have bested artificial intelligence.");
             }
-            if ((PlayerInput == "Rock") && (AiInput == "Scissors") || (AiInput == "Lizard"))
+           else if ((PlayerInput == "Rock") && (AiInput == "Scissors") || (AiInput == "Lizard"))
             {
                 Console.WriteLine("Congratulations! You have bested artificial intelligence.");
             }
-            if ((PlayerInput == "Scissors") && (AiInput == "Paper") || (AiInput == "Lizard"))
+            else if ((PlayerInput == "Scissors") && (AiInput == "Paper") || (AiInput == "Lizard"))
             {
                 Console.WriteLine("Congratulations! You have bested artificial intelligence.");
             }
-            if ((PlayerInput == "Lizard") && (AiInput == "Paper") || (AiInput == "Spock"))
+            else if ((PlayerInput == "Lizard") && (AiInput == "Paper") || (AiInput == "Spock"))
             {
                 Console.WriteLine("Congratulations! You have bested artificial intelligence.");
             }
-            if ((PlayerInput == "Spock") && (AiInput == "Scissors") || (AiInput == "Rock"))
+            else if ((PlayerInput == "Spock") && (AiInput == "Scissors") || (AiInput == "Rock"))
             {
                 Console.WriteLine("Congratulations! You have bested artificial intelligence.");
             }

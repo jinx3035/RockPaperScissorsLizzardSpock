@@ -39,27 +39,28 @@ namespace RockPaperScissorsLizzardSpock
         public  string AiChoice()
         {
             Random random = new Random();
-            int number = random.Next(1, 6);
-            if(number == 1)
+            int number = random.Next(0,5);
+            if(number == 0)
             {
                 return "Paper";
             }
-            else if(number == 2)
+            else if(number == 1)
             {
                 return "Rock";
             }
-            else if(number == 3)
+            else if(number == 2)
             {
                 return "Scissors";
             }
-            else if(number == 4)
+            else if(number == 3)
             {
                 return "Lizard";
             }
-            else
+            else 
             {
                 return "Spock";
             }
+
         }
     }
 }
