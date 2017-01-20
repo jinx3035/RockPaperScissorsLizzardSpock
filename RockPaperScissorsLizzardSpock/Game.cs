@@ -40,35 +40,35 @@ namespace RockPaperScissorsLizzardSpock
             Winner(PlayerOne, PlayerTwo);
             Console.ReadLine();
         }
-        private void Winner(string PlayerInput, string AiInput)
+        private void Winner(string PlayerOne, string PlayerTwo)
         {
-            if ((PlayerInput == "Paper") && (AiInput == "Rock") || (AiInput == "Spock"))
+            if ((PlayerOne == "Paper") && (PlayerTwo == "Rock") || (PlayerTwo == "Spock"))
             {
-                Console.WriteLine("Congratulations! You have bested artificial intelligence.");
+                Console.WriteLine("Congratulations " + PlayerOne + " defeats " + PlayerTwo + " Player 1 wins.");
             }
-           else if ((PlayerInput == "Rock") && (AiInput == "Scissors") || (AiInput == "Lizard"))
+           else if ((PlayerOne == "Rock") && (PlayerTwo == "Scissors") || (PlayerTwo == "Lizard"))
             {
-                Console.WriteLine("Congratulations! You have bested artificial intelligence.");
+                Console.WriteLine("Congratulations " + PlayerOne + " defeats " + PlayerTwo + " Player 1 wins.");
             }
-            else if ((PlayerInput == "Scissors") && (AiInput == "Paper") || (AiInput == "Lizard"))
+            else if ((PlayerOne == "Scissors") && (PlayerTwo == "Paper") || (PlayerTwo == "Lizard"))
             {
-                Console.WriteLine("Congratulations! You have bested artificial intelligence.");
+                Console.WriteLine("Congratulations " + PlayerOne + " defeats " + PlayerTwo + " Player 1 wins.");
             }
-            else if ((PlayerInput == "Lizard") && (AiInput == "Paper") || (AiInput == "Spock"))
+            else if ((PlayerOne == "Lizard") && (PlayerTwo == "Paper") || (PlayerTwo == "Spock"))
             {
-                Console.WriteLine("Congratulations! You have bested artificial intelligence.");
+                Console.WriteLine("Congratulations " + PlayerOne + " defeats " + PlayerTwo + " Player 1 wins.");
             }
-            else if ((PlayerInput == "Spock") && (AiInput == "Scissors") || (AiInput == "Rock"))
+            else if ((PlayerOne == "Spock") && (PlayerTwo == "Scissors") || (PlayerTwo == "Rock"))
             {
-                Console.WriteLine("Congratulations! You have bested artificial intelligence.");
+                Console.WriteLine("Congratulations " +PlayerOne+ " defeats " +PlayerTwo+ " Player 1 wins.");
             }
-            else if (PlayerInput == AiInput)
+            else if (PlayerOne == PlayerTwo)
             {
-                Console.WriteLine("How boring. It's a tie.");
+                Console.WriteLine(PlayerOne + " and " +PlayerTwo+ " but heads. How boring. It's a tie.");
             }
             else
             {
-                Console.WriteLine("Resistance is futile. You have been defeated.");
+                Console.WriteLine("Resistance is futile. " +PlayerTwo+ " defeats " +PlayerOne+ " You have been defeated.");
             }
         }
     }
