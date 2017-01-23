@@ -8,13 +8,13 @@ namespace RockPaperScissorsLizzardSpock
 {
     class ComputerPlayer: Game
     {
-        public void AiName(string name)
+        public void PlayerName(string name)
         {
             name =  ("Sheldon");
             Console.WriteLine("Player 2 name is Sheldon");
         }
 
-        public string AiChoice()
+        public override string PlayerChoice()
         {
             Random random = new Random();
             int choice = random.Next(0, 4);

@@ -9,14 +9,19 @@ namespace RockPaperScissorsLizzardSpock
     class HumanPlayer: Game
     {
 
-        public string PlayerName(string name)
+        public override string PlayerName()
         {            
             Console.WriteLine("Enter player 1 name:");
-            name = Console.ReadLine();
+            string name = Console.ReadLine();
             return name;
         }
 
-        public string PlayerChoice()
+        //public void ShowChoice()
+        //{
+
+        //}
+
+        public override string PlayerChoice()
         {
             Console.WriteLine("Choose from Rock, Paper, Scissors, Lizard or Spock:");
             string choice = Console.ReadLine();
@@ -36,12 +41,15 @@ namespace RockPaperScissorsLizzardSpock
             {
                 return "Lizard";
             }
-            else 
+            else if (choice == "Spock") 
             {
                 return "Spock";
             }
+            else
+            {
+                Console.WriteLine("Enter a valid word");
+                PlayerChoice();
+            }
         }
-
-
     }
 }

@@ -8,26 +8,39 @@ namespace RockPaperScissorsLizzardSpock
 {
     class Game
     {
-        HumanPlayer playerOne;
-        HumanPlayer player2;
-        ComputerPlayer playerTwo;
+
         public string name;
         public string choice;
+        private int numberOfPlayers;
+        public string playerOne;
+        public string playerTwo;
 
-
-        public void ChoosePlayers(int numberOfPlayers)
+        public void ChooseOnePlayer(int numberOfPlayers)
         {
-            if(numberOfPlayers == 1)
-            {
-                playerOne = new HumanPlayer();
-                playerTwo = new ComputerPlayer();
-            }
-            else
-            {
-                playerOne = new HumanPlayer();
-                player2 = new HumanPlayer();
-            }
+            HumanPlayer playerOne = new HumanPlayer();
+            playerOne.PlayerChoice();
+            ComputerPlayer playerTwo = new ComputerPlayer();
+            playerTwo.PlayerChoice();
         }
+        public void ChooseTwoPlayers(int numberOfPlayers)
+        {
+            HumanPlayer playerOne = new HumanPlayer();
+            playerOne.PlayerChoice();
+            HumanPlayer playerTwo = new HumanPlayer();
+            playerTwo.PlayerChoice();
+        }
+
+
+
+        public virtual string PlayerChoice()
+        {
+            return ""; 
+        }
+        public virtual string PlayerName()
+        {
+            return "";
+        }
+
         public void PlayGame()
         {            
             Console.WriteLine("Is there 'one' or 'two' players?");
@@ -35,33 +48,32 @@ namespace RockPaperScissorsLizzardSpock
 
             if(GameType == "one")
             {
-                name = playerOne.PlayerName(name);
-                choice = playerOne.PlayerChoice();
-                choice = playerTwo.AiChoice(); 
+                ChooseOnePlayer(numberOfPlayers);
             }
 
             else if(GameType == "two")
             {
-                name = playerOne.PlayerName(name);
-                name = player2.PlayerName(name);
-                choice = playerOne.PlayerChoice();
-                choice = player2.PlayerChoice();
+                ChooseTwoPlayers(numberOfPlayers);
             }
             else
             {
                 Console.WriteLine("Enter 'one' or 'two'.");
                 PlayGame();
-            }
-
-            Console.WriteLine("Player one's choice:{0}", playerOne.choice);
-            Console.WriteLine("Player two's choice:{0}", playerTwo.choice);
-            Console.ReadLine();
-            DetermineWinner();            
-
+            }            
         }
+
+        public void ShowChoices()
+        {
+            Console.WriteLine("Player one's choice:" + playerOne.PlayerChoice());
+            Console.WriteLine("Player two's choice:" + playerTwo.PlayerChoice());
+            Console.ReadLine();
+            DetermineWinner();
+        }
+
+
         private void DetermineWinner()
         {
-            if ((playerOne.choice == "Paper") && (playerTwo.choice == "Rock") || (playerTwo.choice == "Spock"))
+            if ((playerOne.PlayerChoice() == "Paper") && (playerTwo.choice == "Rock") || (playerTwo.choice == "Spock"))
             {
                 Console.WriteLine("Congratulations " + playerOne.name + "'s choice: " + playerOne.choice + " defeats " + playerOne.name + "'s choice: "+ playerTwo.choice + " --> " + playerOne.name + " wins.");
             }
