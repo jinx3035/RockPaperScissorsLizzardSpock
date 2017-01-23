@@ -8,8 +8,14 @@ namespace RockPaperScissorsLizzardSpock
 {
     class HumanPlayer: Game
     {
-        public string choice;
-        
+
+        public string PlayerName(string name)
+        {            
+            Console.WriteLine("Enter player 1 name:");
+            name = Console.ReadLine();
+            return name;
+        }
+
         public string PlayerChoice()
         {
             Console.WriteLine("Choose from Rock, Paper, Scissors, Lizard or Spock:");
@@ -35,5 +41,7 @@ namespace RockPaperScissorsLizzardSpock
                 return "Spock";
             }
         }
+
+
     }
 }

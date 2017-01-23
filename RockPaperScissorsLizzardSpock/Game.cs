@@ -12,6 +12,8 @@ namespace RockPaperScissorsLizzardSpock
         HumanPlayer player2;
         ComputerPlayer playerTwo;
         public string name;
+        public string choice;
+
 
         public void ChoosePlayers(int numberOfPlayers)
         {
@@ -32,30 +34,30 @@ namespace RockPaperScissorsLizzardSpock
             string GameType = Console.ReadLine();
 
             if(GameType == "one")
-            {               
-                Console.WriteLine("Enter player 1 name:");
-                playerOne.name = Console.ReadLine();                
-                playerOne.choice = playerOne.PlayerChoice();
-              
-                Console.WriteLine("Enter player 2 name:");
-                player2.name = Console.ReadLine();
-                playerTwo.choice = playerTwo.AiChoice(); 
+            {
+                name = playerOne.PlayerName(name);
+                choice = playerOne.PlayerChoice();
+                choice = playerTwo.AiChoice(); 
+            }
+
+            else if(GameType == "two")
+            {
+                name = playerOne.PlayerName(name);
+                name = player2.PlayerName(name);
+                choice = playerOne.PlayerChoice();
+                choice = player2.PlayerChoice();
             }
             else
-            {               
-                Console.WriteLine("What is player one's name?");
-                playerOne.name = Console.ReadLine();
-                playerOne.choice = playerOne.PlayerChoice();
-              
-                Console.WriteLine("What is player two's name?");
-                playerTwo.name = Console.ReadLine();
-                playerTwo.choice = player2.PlayerChoice();
+            {
+                Console.WriteLine("Enter 'one' or 'two'.");
+                PlayGame();
             }
 
             Console.WriteLine("Player one's choice:{0}", playerOne.choice);
             Console.WriteLine("Player two's choice:{0}", playerTwo.choice);
             Console.ReadLine();
             DetermineWinner();            
+
         }
         private void DetermineWinner()
         {

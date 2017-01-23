@@ -8,7 +8,11 @@ namespace RockPaperScissorsLizzardSpock
 {
     class ComputerPlayer: Game
     {
-        public string choice;
+        public void AiName(string name)
+        {
+            name =  ("Sheldon");
+            Console.WriteLine("Player 2 name is Sheldon");
+        }
 
         public string AiChoice()
         {
