@@ -6,10 +6,9 @@ using System.Threading.Tasks;
 
 namespace RockPaperScissorsLizzardSpock
 {
-    class Player
+    class HumanPlayer: Game
     {
-
-
+        public string choice;
         
         public string PlayerChoice()
         {
@@ -35,32 +34,6 @@ namespace RockPaperScissorsLizzardSpock
             {
                 return "Spock";
             }
-        }
-        public  string AiChoice()
-        {
-            Random random = new Random();
-            int number = random.Next(0,5);
-            if(number == 0)
-            {
-                return "Paper";
-            }
-            else if(number == 1)
-            {
-                return "Rock";
-            }
-            else if(number == 2)
-            {
-                return "Scissors";
-            }
-            else if(number == 3)
-            {
-                return "Lizard";
-            }
-            else 
-            {
-                return "Spock";
-            }
-
         }
     }
 }

@@ -8,67 +8,84 @@ namespace RockPaperScissorsLizzardSpock
 {
     class Game
     {
-        static void Main(string[] args)
+        HumanPlayer playerOne;
+        HumanPlayer player2;
+        ComputerPlayer playerTwo;
+        public string name;
+
+        public void ChoosePlayers(int numberOfPlayers)
         {
-            Game start = new Game();
-            start.PlayGame();
+            if(numberOfPlayers == 1)
+            {
+                playerOne = new HumanPlayer();
+                playerTwo = new ComputerPlayer();
+            }
+            else
+            {
+                playerOne = new HumanPlayer();
+                player2 = new HumanPlayer();
+            }
         }
         public void PlayGame()
-        {
-            string PlayerOne;
-            string PlayerTwo;
-             
+        {            
             Console.WriteLine("Is there 'one' or 'two' players?");
             string GameType = Console.ReadLine();
+
             if(GameType == "one")
-            {
-                Player Humanplayer = new Player();
-                PlayerOne = Humanplayer.PlayerChoice();
-                Player Aiplayer = new Player();
-                PlayerTwo = Aiplayer.AiChoice();
+            {               
+                Console.WriteLine("Enter player 1 name:");
+                playerOne.name = Console.ReadLine();                
+                playerOne.choice = playerOne.PlayerChoice();
+              
+                Console.WriteLine("Enter player 2 name:");
+                player2.name = Console.ReadLine();
+                playerTwo.choice = playerTwo.AiChoice(); 
             }
             else
-            {
-                Player Humanplayer1 = new Player();
-                PlayerOne = Humanplayer1.PlayerChoice();
-                Player Humanplayer2 = new Player();
-                PlayerTwo = Humanplayer2.PlayerChoice();
+            {               
+                Console.WriteLine("What is player one's name?");
+                playerOne.name = Console.ReadLine();
+                playerOne.choice = playerOne.PlayerChoice();
+              
+                Console.WriteLine("What is player two's name?");
+                playerTwo.name = Console.ReadLine();
+                playerTwo.choice = player2.PlayerChoice();
             }
 
-            Console.WriteLine("Your choice:{0}", PlayerOne);
-            Console.WriteLine("The computer choice:{0}", PlayerTwo);
-            Winner(PlayerOne, PlayerTwo);
+            Console.WriteLine("Player one's choice:{0}", playerOne.choice);
+            Console.WriteLine("Player two's choice:{0}", playerTwo.choice);
             Console.ReadLine();
+            DetermineWinner();            
         }
-        private void Winner(string PlayerOne, string PlayerTwo)
+        private void DetermineWinner()
         {
-            if ((PlayerOne == "Paper") && (PlayerTwo == "Rock") || (PlayerTwo == "Spock"))
+            if ((playerOne.choice == "Paper") && (playerTwo.choice == "Rock") || (playerTwo.choice == "Spock"))
             {
-                Console.WriteLine("Congratulations " + PlayerOne + " defeats " + PlayerTwo + " Player 1 wins.");
+                Console.WriteLine("Congratulations " + playerOne.name + "'s choice: " + playerOne.choice + " defeats " + playerOne.name + "'s choice: "+ playerTwo.choice + " --> " + playerOne.name + " wins.");
             }
-           else if ((PlayerOne == "Rock") && (PlayerTwo == "Scissors") || (PlayerTwo == "Lizard"))
+            else if ((playerOne.choice == "Rock") && (playerOne.choice == "Scissors") || (playerTwo.choice == "Lizard"))
             {
-                Console.WriteLine("Congratulations " + PlayerOne + " defeats " + PlayerTwo + " Player 1 wins.");
+                Console.WriteLine("Congratulations " + playerOne.name + "'s choice: " + playerOne.choice + " defeats " + playerOne.name + "'s choice: " + playerTwo.choice + " --> " + playerOne.name + " wins.");
             }
-            else if ((PlayerOne == "Scissors") && (PlayerTwo == "Paper") || (PlayerTwo == "Lizard"))
+            else if ((playerOne.choice == "Scissors") && (playerTwo.choice == "Paper") || (playerTwo.choice == "Lizard"))
             {
-                Console.WriteLine("Congratulations " + PlayerOne + " defeats " + PlayerTwo + " Player 1 wins.");
+                Console.WriteLine("Congratulations " + playerOne.name + "'s choice: " + playerOne.choice + " defeats " + playerOne.name + "'s choice: " + playerTwo.choice + " --> " + playerOne.name + " wins.");
             }
-            else if ((PlayerOne == "Lizard") && (PlayerTwo == "Paper") || (PlayerTwo == "Spock"))
+            else if ((playerOne.choice == "Lizard") && (playerTwo.choice == "Paper") || (playerTwo.choice == "Spock"))
             {
-                Console.WriteLine("Congratulations " + PlayerOne + " defeats " + PlayerTwo + " Player 1 wins.");
+                Console.WriteLine("Congratulations " + playerOne.name + "'s choice: " + playerOne.choice + " defeats " + playerOne.name + "'s choice: " + playerTwo.choice + " --> " + playerOne.name + " wins.");
             }
-            else if ((PlayerOne == "Spock") && (PlayerTwo == "Scissors") || (PlayerTwo == "Rock"))
+            else if ((playerOne.choice == "Spock") && (playerTwo.choice == "Scissors") || (playerTwo.choice == "Rock"))
             {
-                Console.WriteLine("Congratulations " +PlayerOne+ " defeats " +PlayerTwo+ " Player 1 wins.");
+                Console.WriteLine("Congratulations " + playerOne.name + "'s choice: " + playerOne.choice + " defeats " + playerOne.name + "'s choice: " + playerTwo.choice + " --> " + playerOne.name + " wins.");
             }
-            else if (PlayerOne == PlayerTwo)
+            else if (playerOne.choice == playerTwo.choice)
             {
-                Console.WriteLine(PlayerOne + " and " +PlayerTwo+ " but heads. How boring. It's a tie.");
+                Console.WriteLine(playerOne.choice + " and " + playerTwo.choice + " but heads. How boring. It's a tie.");
             }
             else
             {
-                Console.WriteLine("Resistance is futile. " +PlayerTwo+ " defeats " +PlayerOne+ " You have been defeated.");
+                Console.WriteLine("Congratulations " + playerTwo.choice + " defeats " + playerOne.choice + " " + playerOne.name + " has been defeated by " + playerTwo.name);
             }
         }
     }
