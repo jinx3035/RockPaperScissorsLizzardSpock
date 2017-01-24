@@ -6,16 +6,23 @@ using System.Threading.Tasks;
 
 namespace RockPaperScissorsLizzardSpock
 {
-    class ComputerPlayer: Game
+    class ComputerPlayer: Player
     {
-        public void PlayerName(string name)
+       
+        public override string GetPlayerName(string name)
         {
-            name =  ("Sheldon");
-            Console.WriteLine("Player 2 name is Sheldon");
+            Console.WriteLine("Enter computer player name:");
+            return Console.ReadLine();
+        }
+        public override void ShowPlayerName()
+        {
+            Console.WriteLine("Hello. Press enter to begin.");
+            Console.ReadLine();
         }
 
-        public override string PlayerChoice()
+        public override string ChoosePlayerChoice()
         {
+           
             Random random = new Random();
             int choice = random.Next(0, 4);
             if (choice == 0)
@@ -39,6 +46,11 @@ namespace RockPaperScissorsLizzardSpock
                 return "Spock";
             }
 
+        }
+        public override void ShowPlayerChoice()
+        {
+            Player choice = new Player();
+            choice.ChoosePlayerChoice();
         }
     }
 }

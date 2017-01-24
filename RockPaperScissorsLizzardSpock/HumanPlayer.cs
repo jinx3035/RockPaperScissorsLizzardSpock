@@ -6,23 +6,32 @@ using System.Threading.Tasks;
 
 namespace RockPaperScissorsLizzardSpock
 {
-    class HumanPlayer: Game
+    class HumanPlayer : Player
     {
-
-        public override string PlayerName()
-        {            
-            Console.WriteLine("Enter player 1 name:");
-            string name = Console.ReadLine();
-            return name;
+        
+        public override string GetPlayerName(string name)
+        {
+            Console.WriteLine("Enter human player name:");
+            return Console.ReadLine();
         }
 
-        //public void ShowChoice()
-        //{
+        public override void ShowPlayerName()
+        {
+            Console.WriteLine("Hello. Press enter to begin.");
+            Console.ReadLine();
 
+
+        }
+
+        //public void ShowPlayerChoice()
+        //{
+        //playerOne.GetPlayerChoice();
+        //playerTwo.GetPlayerChoice();
         //}
 
-        public override string PlayerChoice()
+        public override string ChoosePlayerChoice()
         {
+          
             Console.WriteLine("Choose from Rock, Paper, Scissors, Lizard or Spock:");
             string choice = Console.ReadLine();
             if (choice == "Rock")
@@ -47,9 +56,19 @@ namespace RockPaperScissorsLizzardSpock
             }
             else
             {
-                Console.WriteLine("Enter a valid word");
-                PlayerChoice();
+                return ChoosePlayerChoice();
             }
         }
+        public override void ShowPlayerChoice()
+        {
+            Player choice = new Player();
+            choice.ChoosePlayerChoice();
+        }
+        //public string ResetPlayerChoice()
+        //{
+        //    Console.WriteLine("Enter valid information");
+        //    Console.ReadLine();
+        //    PlayerChoice();
+        //}
     }
 }
